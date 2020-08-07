@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "311055104764",
+    "firebase_url": "https://ecodelivery-ca5cc.firebaseio.com",
+    "project_id": "ecodelivery-ca5cc",
+    "storage_bucket": "ecodelivery-ca5cc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:311055104764:android:c0fe9f9f2cab6b038ff579",
+        "android_client_info": {
+          "package_name": "com.ecodelivery.afiliados.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "311055104764-s8c48ib6p9ng6tsqt9i27vd9j0s1ro19.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ecodelivery.afiliados.app",
+            "certificate_hash": "382c38ee830136f41b1f912c4e149b63256d926e"
+          }
+        },
+        {
+          "client_id": "311055104764-88fj6hk7768vgla4on9d1sju155ojmhi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtfDzf9f_PJbVm4I78AwLiS5gzXotiXVo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "311055104764-88fj6hk7768vgla4on9d1sju155ojmhi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
