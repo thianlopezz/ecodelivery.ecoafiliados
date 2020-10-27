@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:ecodelivery/auth/login.dart';
 import 'package:ecodelivery/utils/SessionUtils.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
@@ -11,36 +10,6 @@ import 'package:http/http.dart' as http;
 import '../constants/ws.dart' as WS;
 
 class AuthUtils {
-  static dynamic loginFb(FacebookLoginResult result) async {
-    final token = result.accessToken.token;
-    final graphResponse = await http.get(
-        'https://graph.facebook.com/v2.12/me?fields=name,first_name,last_name,email,picture&access_token=${token}');
-    dynamic profile = json.decode(graphResponse.body);
-
-    profile['picture'] =
-        'https://graph.facebook.com/${profile['id']}/picture?type=large';
-
-    var uri = WS.urlApi + '/fb/login';
-
-    try {
-      final response = await http.post(uri,
-          headers: <String, String>{
-            'Content-Type': 'application/json; charset=UTF-8',
-          },
-          body: jsonEncode(profile));
-
-      final responseJson = json.decode(response.body);
-      return responseJson;
-    } catch (exception) {
-      print(exception);
-      if (exception.toString().contains('SocketException')) {
-        return 'NetworkError';
-      } else {
-        return null;
-      }
-    }
-  }
-
   static dynamic registerUser(usuario) async {
     var uri = WS.urlApi + '/registro';
 

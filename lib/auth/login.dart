@@ -9,7 +9,6 @@ import 'package:ecodelivery/tabs.dart';
 import 'package:ecodelivery/utils/SessionUtils.dart';
 import 'package:ecodelivery/utils/UiUtils.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -53,50 +52,6 @@ class _LoginPageState extends State<LoginPage> {
     if (authToken != null) {
       Navigator.of(_scaffoldKey.currentContext).pushReplacementNamed('/tabs');
     }
-  }
-
-  void initiateFacebookLogin() async {
-    var login = FacebookLogin();
-    var result = await login.logIn(['email']);
-    switch (result.status) {
-      case FacebookLoginStatus.error:
-        print('Surgio un error.');
-        break;
-      case FacebookLoginStatus.cancelledByUser:
-        print('Debes aceptar los permisos.');
-        break;
-      case FacebookLoginStatus.loggedIn:
-        getLoginFbAndRegistrate(result);
-        break;
-    }
-  }
-
-  getLoginFbAndRegistrate(FacebookLoginResult result) async {
-    var responseJson = await AuthUtils.loginFb(result);
-
-    if (responseJson == null) {
-      await pr.hide();
-      UiUtils.showSnackBar(
-          _scaffoldKey, 'Algo Salió mal, vuelve a intentarlo luego.');
-    } else if (responseJson == 'NetworkError') {
-      await pr.hide();
-      UiUtils.showSnackBar(_scaffoldKey, null);
-    } else if (!responseJson['success']) {
-      await pr.hide();
-      UiUtils.showSnackBar(_scaffoldKey, responseJson['mensaje']);
-    } else {
-      SessionUtils.setSession(_sharedPreferences, responseJson);
-
-      Provider.of<SessionInfoProvider>(context, listen: false)
-          .setUsuario(Usuario.fromJson(responseJson['usuario']));
-
-      /**
-         * Removes stack and start with the new page.
-         * In this case on press back on HomePage app will exit.
-         * **/
-      Navigator.of(_scaffoldKey.currentContext).pushReplacementNamed('/tabs');
-    }
-    // _hideLoading();
   }
 
   _login(usuario) async {

@@ -1,4 +1,3 @@
-import 'package:ecodelivery/locations/location.dart';
 import 'package:ecodelivery/marketplace/ordering.dart';
 import 'package:ecodelivery/models/Usuario.dart';
 import 'package:ecodelivery/orders/orders.dart';
@@ -9,7 +8,6 @@ import 'package:ecodelivery/services/UsuarioService.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import './marketplace/marketplace.dart' as marketplace;
 // import './orders/porAceptar.dart';
 import './orders/preparando.dart';
 import './orders/despachados.dart';

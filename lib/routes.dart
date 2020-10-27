@@ -5,9 +5,6 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecodelivery/auth/login.dart';
 import 'package:ecodelivery/configuracion/configuracion.dart';
-import 'package:ecodelivery/locations/location.dart';
-import 'package:ecodelivery/locations/locationForm.dart';
-import 'package:ecodelivery/marketplace/checkout.dart';
 import 'package:ecodelivery/marketplace/ordering.dart';
 import 'package:ecodelivery/marketplace/product-details.dart';
 import 'package:ecodelivery/marketplace/success.dart';
@@ -30,7 +27,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import './auth/signup.dart';
 import './tabs.dart';
-import './marketplace/market.dart';
 
 class Routes extends StatefulWidget {
   @override
@@ -149,18 +145,15 @@ class _RoutesState extends State<Routes> {
       routes: <String, WidgetBuilder>{
         '/signup': (BuildContext context) => new SignupPage(),
         '/tabs': (BuildContext context) => new MyTabs(),
-        '/checkout': (BuildContext context) => new CheckoutPage(),
         '/ordering': (BuildContext context) => new OrderingPage(),
         '/suelto': (BuildContext context) => new SueltoPage(),
         '/success': (BuildContext context) => new SuccessPage(),
         '/order-details': (BuildContext context) => new OrderDetailsPage(),
-        '/location': (BuildContext context) => new LocationPage(),
         '/producto-detalle': (BuildContext context) => new ProductDetailsPage(),
         '/profile': (BuildContext context) => new ProfilePage(),
 
         // '/location-form': (BuildContext context) => new LocationFormPage(),
         '/invoice': (BuildContext context) => new InvoicePage(),
-        '/tienda': (BuildContext context) => new MarketPage(),
         // '/invoiceForm': (BuildContext context) => new InvoiceFormPage(),
       },
       home: LoginPage(),
