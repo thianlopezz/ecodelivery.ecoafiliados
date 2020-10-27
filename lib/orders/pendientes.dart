@@ -184,8 +184,7 @@ class _PendientesPorAceptarPageState extends State<PendientesPorAceptarPage> {
                         height: MediaQuery.of(context).size.height / 1.6,
                         child: Center(child: Text("${snapshot.error}"))),
                   );
-                } else if (snapshot.hasData &&
-                    ordersFiltered != null &&
+                } else if (ordersFiltered != null &&
                     ordersFiltered.length > 0) {
                   return ListView(
                       scrollDirection: Axis.vertical,
@@ -218,8 +217,7 @@ class _PendientesPorAceptarPageState extends State<PendientesPorAceptarPage> {
                               )))
                           .toList());
                 } else if (ordersFiltered != null &&
-                    snapshot.data != null &&
-                    snapshot.data.length == 0) {
+                    ordersFiltered.length == 0) {
                   return SingleChildScrollView(
                     physics: AlwaysScrollableScrollPhysics(),
                     child: Container(
